@@ -1,0 +1,26 @@
+<carte>
+    <cat type="0" >
+        <conso>Brune</conso>
+        <conso>Blonde</conso>
+        <conso>Rousse</conso>
+    </cat>
+    <cat type="1" >
+        <conso>Mojito</conso>
+        <conso>Pina colada</conso>
+    </cat>
+    <cat type="2" >
+        <conso>Café</conso>
+        <conso>Thé</conso>
+        <conso>Chocolat</conso>
+    </cat>            
+    <cat type="3" >
+        <conso>Sirop</conso>
+        <conso>Diabolo</conso>
+        <conso>Jus d'orange</conso>
+    </cat>
+    <cat type="4" >
+        <conso>Rouge</conso>
+        <conso>Blanc</conso>
+        <conso>Rosé</conso>
+    </cat>
+</carte>
