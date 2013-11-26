@@ -1,5 +1,6 @@
 package com.example.hep;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,4 +36,30 @@ public class Element {
 		((TextView) (view.findViewById(R.id.CommandTextViewQuantity))).setText("x "+nb);
 		((TextView) (view.findViewById(R.id.CommandTextViewElement))).setText(description);			
 	}
+
+	
+	/**
+	 * Sauvegarde l'élément de commande dans un Bundle.
+	 * @return Un Bundle contenant la description de l'élément.
+	 */
+	public Bundle getSaveBundle() {
+		Bundle result = new Bundle();
+		
+		result.putInt("type", type);
+		result.putString("description", description);
+		result.putInt("nb", nb);
+		
+		return result;
+	}
+	
+	/**
+	 * Crée l'élément à partir d'une sauvegarde.
+	 * @param bundle Le résultat de la command getSaveBundle().
+	 */
+	public Element(Bundle bundle){
+		type = bundle.getInt("type");
+		description = bundle.getString("description");
+		nb = bundle.getInt("nb");
+	}
+	
 }

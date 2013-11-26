@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,6 +15,22 @@ import android.widget.ListAdapter;
 /**
  * @author dubois
  * Description d'un élément d'une commande.
+ */
+/**
+ * @author dubois
+ *
+ */
+/**
+ * @author dubois
+ *
+ */
+/**
+ * @author dubois
+ *
+ */
+/**
+ * @author dubois
+ *
  */
 public class Command {
 	
@@ -114,6 +131,48 @@ public class Command {
 		}
 		return adapter;
 	}
+	
+	/**
+	 * Sauvegarde la commande dans un Bundle.
+	 * Pour recharger, appeler loadBundle(Bundle bundle) sur une instance de Command.
+	 * @return La sauvegarde dans un Bundle.
+	 */
+	public Bundle getSaveBundle() {
+		
+		Bundle result = new Bundle();
+		
+		ArrayList<Bundle> save = new ArrayList<Bundle>();
+		for(Element element : list){
+			save.add(element.getSaveBundle());
+		}
+		
+		result.putParcelableArrayList("list",save);
+		return result;
+	}
+	
+	
+	/**
+	 * Charge une commande sauvegardée dans un bundle.
+	 * Pour sauvegarder, utiliser la méthode getSaveBundle().
+	 * @param bundle La sauvegarde à restaurer.
+	 */
+	public void loadBundle(Bundle bundle) {
+		list.clear();
+		map.clear();
+		
+		ArrayList<Bundle> l = bundle.getParcelableArrayList("list");
+		for(Bundle b : l){
+			Element element = new Element(b);
+			list.add(element);
+			map.put(element.toString(), element);
+		}
+		
+		if (adapter != null){
+			adapter.notifyDataSetChanged();
+		}
+	}
+	
+	
 
 
 }
